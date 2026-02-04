@@ -2,8 +2,8 @@
 	"version": 1,
 	"named_parameters": true,
 	"general": {
-		"title": "MOSuite-filter-diff",
-		"instructions": "MOSuite filter differential expression results"
+		"title": "MOSuite - plot expression heatmap",
+		"instructions": "Create expression heatmaps to visualize normalized gene expression patterns across samples"
 	},
 	"datasets": [
 		{
@@ -19,12 +19,27 @@
 		},
 		{
 			"id": "EzTg1ivlFDHEy9PI",
-			"name": "Basic",
+			"name": "Gene filtering",
 			"icon": "📂"
 		},
 		{
 			"id": "FvI4Z2eb9sjL47Jt",
-			"name": "Advanced",
+			"name": "Clustering & Ordering",
+			"icon": "📂"
+		},
+		{
+			"id": "AdvGeneDisplay",
+			"name": "Gene Display",
+			"icon": "📂"
+		},
+		{
+			"id": "AdvSampleDisplay",
+			"name": "Sample Display",
+			"icon": "📂"
+		},
+		{
+			"id": "AdvHeatmapStyle",
+			"name": "Heatmap Styling",
 			"icon": "📂"
 		}
 	],
@@ -40,8 +55,36 @@
 			"default_value": ".*\\\\.rds$"
 		},
 		{
-			"id": "w1kntbu7DvR0ABp2",
-			"category": "EzTg1ivlFDHEy9PI",
+			"id": "count_type_id",
+			"category": "7Rr6IxOMDucKMImp",
+			"name": "Count type",
+			"param_name": "count_type",
+			"description": "Type of counts to use (e.g., filt, norm)",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "filt"
+		},
+		{
+			"id": "sub_count_type_id",
+			"category": "7Rr6IxOMDucKMImp",
+			"name": "Sub count type",
+			"param_name": "sub_count_type",
+			"description": "Sub count type if count_type is a list",
+			"type": "text",
+			"value_type": "string"
+		},
+		{
+			"id": "sample_id_colname_id",
+			"category": "7Rr6IxOMDucKMImp",
+			"name": "Sample ID column name",
+			"param_name": "sample_id_colname",
+			"description": "Column name for sample IDs",
+			"type": "text",
+			"value_type": "string"
+		},
+		{
+			"id": "feature_id_colname_id",
+			"category": "7Rr6IxOMDucKMImp",
 			"name": "Feature ID column name",
 			"param_name": "feature_id_colname",
 			"description": "Column name for feature IDs",
@@ -49,212 +92,380 @@
 			"value_type": "string"
 		},
 		{
-			"id": "A1nG6Kp8ZyQ9sL0v",
-			"category": "EzTg1ivlFDHEy9PI",
-			"name": "Significance column",
-			"param_name": "significance_column",
-			"description": "Column name for significance (e.g., pval or adjpval)",
+			"id": "group_colname_id",
+			"category": "7Rr6IxOMDucKMImp",
+			"name": "Group column name",
+			"param_name": "group_colname",
+			"description": "Column name for sample groups",
 			"type": "text",
 			"value_type": "string",
-			"default_value": "adjpval"
+			"default_value": "Group"
 		},
 		{
-			"id": "s5mL2nC8pQ4rT7x1",
-			"category": "EzTg1ivlFDHEy9PI",
-			"name": "Significance cutoff",
-			"param_name": "significance_cutoff",
-			"description": "Features must be below this significance cutoff",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "0.05"
-		},
-		{
-			"id": "G4pV1bH9nR2cD6e8",
-			"category": "EzTg1ivlFDHEy9PI",
-			"name": "Change column",
-			"param_name": "change_column",
-			"description": "Column name for change (e.g., logFC)",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "logFC"
-		},
-		{
-			"id": "Z8qL4xT2mY6hP1s3",
-			"category": "EzTg1ivlFDHEy9PI",
-			"name": "Change cutoff",
-			"param_name": "change_cutoff",
-			"description": "Absolute change threshold",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "1"
-		},
-		{
-			"id": "b7Yx3Fq0tU9nM2k5",
-			"category": "EzTg1ivlFDHEy9PI",
-			"name": "Filtering mode",
-			"param_name": "filtering_mode",
-			"description": "Include features meeting criteria in any or all contrasts (any/all)",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "any"
-		},
-		{
-			"id": "V2rD6kS9aW1jH5m8",
-			"category": "EzTg1ivlFDHEy9PI",
-			"name": "Include estimates",
-			"param_name": "include_estimates",
-			"description": "Comma-separated list of estimates to include",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "FC,logFC,tstat,pval,adjpval"
-		},
-		{
-			"id": "n4C2vR8pL7mQ3dX1",
-			"category": "EzTg1ivlFDHEy9PI",
-			"name": "Round estimates",
-			"param_name": "round_estimates",
-			"description": "Whether to round estimates",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "TRUE"
-		},
-		{
-			"id": "m9K2pX4bV7nT1eR6",
-			"category": "EzTg1ivlFDHEy9PI",
-			"name": "Contrast filter",
-			"param_name": "contrast_filter",
-			"description": "Whether to keep, remove, or ignore contrast filtering",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "none"
-		},
-		{
-			"id": "d8L1wZ3qS6cA9fT2",
-			"category": "EzTg1ivlFDHEy9PI",
-			"name": "Contrasts",
-			"param_name": "contrasts",
-			"description": "Comma-separated list of contrasts to keep/remove",
+			"id": "label_colname_id",
+			"category": "7Rr6IxOMDucKMImp",
+			"name": "Label column name",
+			"param_name": "label_colname",
+			"description": "Column name for sample labels",
 			"type": "text",
 			"value_type": "string"
 		},
 		{
-			"id": "f3H9nQ2vW7kM1sP8",
-			"category": "EzTg1ivlFDHEy9PI",
-			"name": "Groups",
-			"param_name": "groups",
-			"description": "Comma-separated list of groups to keep/remove",
+			"id": "samples_to_include_id",
+			"category": "7Rr6IxOMDucKMImp",
+			"name": "Samples to include",
+			"param_name": "samples_to_include",
+			"description": "Comma-separated list of samples to include",
 			"type": "text",
 			"value_type": "string"
 		},
 		{
-			"id": "u7R4cB2mX9jL5nD1",
+			"id": "include_all_genes_id",
 			"category": "EzTg1ivlFDHEy9PI",
-			"name": "Groups filter",
-			"param_name": "groups_filter",
-			"description": "Whether to keep, remove, or ignore group filtering",
+			"name": "Include all genes",
+			"param_name": "include_all_genes",
+			"description": "Include all genes in heatmap",
 			"type": "text",
 			"value_type": "string",
-			"default_value": "none"
+			"default_value": "FALSE"
 		},
 		{
-			"id": "Q6tH8vY1xN4mB3c7",
-			"category": "FvI4Z2eb9sjL47Jt",
-			"name": "Rounding decimals for percent",
-			"param_name": "rounding_decimal_for_percent_cells",
-			"description": "Decimal places for percent labels",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "0"
-		},
-		{
-			"id": "R8dK2pV5yQ1tS6x9",
-			"category": "FvI4Z2eb9sjL47Jt",
-			"name": "Label font size",
-			"param_name": "label_font_size",
-			"description": "Font size for labels in plots",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "6"
-		},
-		{
-			"id": "p2X7mN4vT6cL1hQ9",
-			"category": "FvI4Z2eb9sjL47Jt",
-			"name": "Label distance",
-			"param_name": "label_distance",
-			"description": "Distance of labels from bars",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "1"
-		},
-		{
-			"id": "h1V6xQ3mT9kB2nR7",
-			"category": "FvI4Z2eb9sjL47Jt",
-			"name": "Y-axis expansion",
-			"param_name": "y_axis_expansion",
-			"description": "Expansion of the y-axis",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "0.08"
-		},
-		{
-			"id": "K9cP1rV6xT3mQ7nB",
-			"category": "FvI4Z2eb9sjL47Jt",
-			"name": "Fill colors",
-			"param_name": "fill_colors",
-			"description": "Comma-separated fill colors for bars",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "steelblue1,whitesmoke"
-		},
-		{
-			"id": "L5mT8yQ2vR1nX6cP",
-			"category": "FvI4Z2eb9sjL47Jt",
-			"name": "Pie chart in 3D",
-			"param_name": "pie_chart_in_3d",
-			"description": "Whether to draw pie charts in 3D",
+			"id": "filter_top_genes_id",
+			"category": "EzTg1ivlFDHEy9PI",
+			"name": "Filter top genes by variance",
+			"param_name": "filter_top_genes_by_variance",
+			"description": "Filter genes by variance",
 			"type": "text",
 			"value_type": "string",
 			"default_value": "TRUE"
 		},
 		{
-			"id": "B6tQ1pV8mR3xN2cL",
-			"category": "FvI4Z2eb9sjL47Jt",
-			"name": "Bar width",
-			"param_name": "bar_width",
-			"description": "Width of bars",
+			"id": "top_genes_count_id",
+			"category": "EzTg1ivlFDHEy9PI",
+			"name": "Top genes by variance",
+			"param_name": "top_genes_by_variance_to_include",
+			"description": "Number of top genes by variance to include",
 			"type": "text",
 			"value_type": "string",
-			"default_value": "0.4"
+			"default_value": "500"
 		},
 		{
-			"id": "x3M7nQ1tV9kR5cB2",
+			"id": "specific_genes_id",
+			"category": "EzTg1ivlFDHEy9PI",
+			"name": "Specific genes to include",
+			"param_name": "specific_genes_to_include_in_heatmap",
+			"description": "Comma-separated list of specific genes",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "None"
+		},
+		{
+			"id": "cluster_genes_id",
 			"category": "FvI4Z2eb9sjL47Jt",
-			"name": "Draw bar border",
-			"param_name": "draw_bar_border",
-			"description": "Whether to draw borders around bars",
+			"name": "Cluster genes",
+			"param_name": "cluster_genes",
+			"description": "Cluster genes in heatmap",
 			"type": "text",
 			"value_type": "string",
 			"default_value": "TRUE"
 		},
 		{
-			"id": "Y4nR2pX7mL1vQ6cT",
+			"id": "gene_distance_metric_id",
 			"category": "FvI4Z2eb9sjL47Jt",
-			"name": "Plot type",
-			"param_name": "plot_type",
-			"description": "Plot type: bar or pie",
+			"name": "Gene distance metric",
+			"param_name": "gene_distance_metric",
+			"description": "Distance metric for gene clustering",
 			"type": "text",
 			"value_type": "string",
-			"default_value": "bar"
+			"default_value": "correlation"
 		},
 		{
-			"id": "t6P3mQ9vR1xK7nB2",
+			"id": "gene_clustering_method_id",
 			"category": "FvI4Z2eb9sjL47Jt",
-			"name": "Plot titles fontsize",
-			"param_name": "plot_titles_fontsize",
-			"description": "Font size for plot titles",
+			"name": "Gene clustering method",
+			"param_name": "gene_clustering_method",
+			"description": "Clustering method for genes",
 			"type": "text",
 			"value_type": "string",
-			"default_value": "12"
+			"default_value": "average"
+		},
+		{
+			"id": "display_gene_dendrograms_id",
+			"category": "AdvGeneDisplay",
+			"name": "Display gene dendrograms",
+			"param_name": "display_gene_dendrograms",
+			"description": "Display dendrograms for gene clustering",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "TRUE"
+		},
+		{
+			"id": "display_gene_names_id",
+			"category": "AdvGeneDisplay",
+			"name": "Display gene names",
+			"param_name": "display_gene_names",
+			"description": "Display gene names in heatmap",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "FALSE"
+		},
+		{
+			"id": "gene_name_font_size_id",
+			"category": "AdvGeneDisplay",
+			"name": "Gene name font size",
+			"param_name": "gene_name_font_size",
+			"description": "Font size for gene names",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "4"
+		},
+		{
+			"id": "center_rescale_id",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Center and rescale expression",
+			"param_name": "center_and_rescale_expression",
+			"description": "Center and rescale expression values",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "TRUE"
+		},
+		{
+			"id": "cluster_samples_id",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Cluster samples",
+			"param_name": "cluster_samples",
+			"description": "Cluster samples in heatmap",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "FALSE"
+		},
+		{
+			"id": "arrange_sample_cols_id",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Arrange sample columns",
+			"param_name": "arrange_sample_columns",
+			"description": "Arrange sample columns",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "TRUE"
+		},
+		{
+			"id": "order_by_gene_expr_id",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Order by gene expression",
+			"param_name": "order_by_gene_expression",
+			"description": "Order samples by gene expression",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "FALSE"
+		},
+		{
+			"id": "gene_order_cols_id",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Gene to order columns",
+			"param_name": "gene_to_order_columns",
+			"description": "Gene to use for ordering columns",
+			"type": "text",
+			"value_type": "string",
+			"default_value": " "
+		},
+		{
+			"id": "gene_expr_order_id",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Gene expression order",
+			"param_name": "gene_expression_order",
+			"description": "Order expression values (low_to_high or high_to_low)",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "low_to_high"
+		},
+		{
+			"id": "smpl_distance_metric_id",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Sample distance metric",
+			"param_name": "smpl_distance_metric",
+			"description": "Distance metric for sample clustering",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "correlation"
+		},
+		{
+			"id": "smpl_clustering_method_id",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Sample clustering method",
+			"param_name": "smpl_clustering_method",
+			"description": "Clustering method for samples",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "average"
+		},
+		{
+			"id": "display_smpl_dendrograms_id",
+			"category": "AdvSampleDisplay",
+			"name": "Display sample dendrograms",
+			"param_name": "display_smpl_dendrograms",
+			"description": "Display dendrograms for sample clustering",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "TRUE"
+		},
+		{
+			"id": "reorder_dendrogram_id",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Reorder dendrogram",
+			"param_name": "reorder_dendrogram",
+			"description": "Reorder dendrogram",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "FALSE"
+		},
+		{
+			"id": "reorder_dendrogram_order_id",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Reorder dendrogram order",
+			"param_name": "reorder_dendrogram_order",
+			"description": "Order for reordering dendrogram",
+			"type": "text",
+			"value_type": "string"
+		},
+		{
+			"id": "display_smpl_names_id",
+			"category": "AdvSampleDisplay",
+			"name": "Display sample names",
+			"param_name": "display_sample_names",
+			"description": "Display sample names in heatmap",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "TRUE"
+		},
+		{
+			"id": "sample_name_font_size_id",
+			"category": "AdvSampleDisplay",
+			"name": "Sample name font size",
+			"param_name": "sample_name_font_size",
+			"description": "Font size for sample names",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "8"
+		},
+		{
+			"id": "group_columns_id",
+			"category": "AdvSampleDisplay",
+			"name": "Group columns",
+			"param_name": "group_columns",
+			"description": "Columns for grouping samples",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "Group,Replicate,Batch"
+		},
+		{
+			"id": "assign_group_colors_id",
+			"category": "AdvSampleDisplay",
+			"name": "Assign group colors",
+			"param_name": "assign_group_colors",
+			"description": "Assign colors to sample groups",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "FALSE"
+		},
+		{
+			"id": "assign_color_sample_groups_id",
+			"category": "AdvSampleDisplay",
+			"name": "Assign color to sample groups",
+			"param_name": "assign_color_to_sample_groups",
+			"description": "Assignment of colors to sample groups",
+			"type": "text",
+			"value_type": "string"
+		},
+		{
+			"id": "color_values_id",
+			"category": "AdvHeatmapStyle",
+			"name": "Color values",
+			"param_name": "color_values",
+			"description": "Comma-separated color values for heatmap",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "#5954d6,#e1562c,#b80058,#00c6f8,#d163e6,#00a76c,#ff9287,#008cf9,#006e00,#796880,#FFA500,#878500"
+		},
+		{
+			"id": "group_colors_id",
+			"category": "AdvHeatmapStyle",
+			"name": "Group colors",
+			"param_name": "group_colors",
+			"description": "Comma-separated colors for groups",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "#5954d6,#e1562c,#b80058,#00c6f8,#d163e6,#00a76c,#ff9287,#008cf9,#006e00,#796880,#FFA500,#878500"
+		},
+		{
+			"id": "heatmap_color_scheme_id",
+			"category": "AdvHeatmapStyle",
+			"name": "Heatmap color scheme",
+			"param_name": "heatmap_color_scheme",
+			"description": "Color scheme for heatmap",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "Default"
+		},
+		{
+			"id": "autoscale_heatmap_color_id",
+			"category": "AdvHeatmapStyle",
+			"name": "Autoscale heatmap color",
+			"param_name": "autoscale_heatmap_color",
+			"description": "Automatically scale heatmap colors",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "TRUE"
+		},
+		{
+			"id": "set_min_heatmap_color_id",
+			"category": "AdvHeatmapStyle",
+			"name": "Minimum heatmap color value",
+			"param_name": "set_min_heatmap_color",
+			"description": "Minimum value for heatmap color scale",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "-2"
+		},
+		{
+			"id": "set_max_heatmap_color_id",
+			"category": "AdvHeatmapStyle",
+			"name": "Maximum heatmap color value",
+			"param_name": "set_max_heatmap_color",
+			"description": "Maximum value for heatmap color scale",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "2"
+		},
+		{
+			"id": "aspect_ratio_id",
+			"category": "AdvHeatmapStyle",
+			"name": "Aspect ratio",
+			"param_name": "aspect_ratio",
+			"description": "Aspect ratio of heatmap",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "Auto"
+		},
+		{
+			"id": "legend_font_size_id",
+			"category": "AdvHeatmapStyle",
+			"name": "Legend font size",
+			"param_name": "legend_font_size",
+			"description": "Font size for legend",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "10"
+		},
+		{
+			"id": "display_numbers_id",
+			"category": "AdvHeatmapStyle",
+			"name": "Display numbers",
+			"param_name": "display_numbers",
+			"description": "Display numbers in heatmap cells",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "FALSE"
 		}
 	]
 }
