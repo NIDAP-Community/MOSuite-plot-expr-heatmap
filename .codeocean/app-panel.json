@@ -14,23 +14,26 @@
 	"categories": [
 		{
 			"id": "7Rr6IxOMDucKMImp",
-			"name": "Input data parameters",
-			"icon": "📂"
+			"name": "Input Data Parameters",
+			"description": "Options for defining input data",
+			"icon": "📁"
 		},
 		{
 			"id": "EzTg1ivlFDHEy9PI",
-			"name": "Gene filtering",
+			"name": "Basic",
 			"icon": "📂"
 		},
 		{
 			"id": "FvI4Z2eb9sjL47Jt",
-			"name": "Clustering \u0026 Ordering",
+			"name": "Advanced",
+			"description": "Advanced clustering and ordering options",
 			"icon": "📂"
 		},
 		{
 			"id": "AdvGeneDisplay",
-			"name": "Gene Display",
-			"icon": "📂"
+			"name": "Visualization",
+			"description": "Visualization and plotting options",
+			"icon": "📊"
 		},
 		{
 			"id": "AdvSampleDisplay",
@@ -56,7 +59,7 @@
 		},
 		{
 			"id": "count_type_id",
-			"category": "7Rr6IxOMDucKMImp",
+			"category": "FvI4Z2eb9sjL47Jt",
 			"name": "Count type",
 			"param_name": "count_type",
 			"description": "Type of counts to use (e.g., filt, norm)",
@@ -66,7 +69,7 @@
 		},
 		{
 			"id": "sub_count_type_id",
-			"category": "7Rr6IxOMDucKMImp",
+			"category": "FvI4Z2eb9sjL47Jt",
 			"name": "Sub count type",
 			"param_name": "sub_count_type",
 			"description": "Sub count type if count_type is a list",
@@ -75,7 +78,7 @@
 		},
 		{
 			"id": "sample_id_colname_id",
-			"category": "7Rr6IxOMDucKMImp",
+			"category": "FvI4Z2eb9sjL47Jt",
 			"name": "Sample ID column name",
 			"param_name": "sample_id_colname",
 			"description": "Column name for sample IDs",
@@ -84,7 +87,7 @@
 		},
 		{
 			"id": "feature_id_colname_id",
-			"category": "7Rr6IxOMDucKMImp",
+			"category": "FvI4Z2eb9sjL47Jt",
 			"name": "Feature ID column name",
 			"param_name": "feature_id_colname",
 			"description": "Column name for feature IDs",
