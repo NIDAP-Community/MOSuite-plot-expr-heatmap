@@ -1,0 +1,10 @@
+metadata_version: 1
+name: MOSuite - plot expression heatmap
+description: |-
+  Create expression heatmaps to visualize normalized gene expression patterns across samples.
+
+  Multi-Omics Suite provides a suite of functions to clean, filter, batch-correct, normalize, visualize, and perform differential expression analysis. While the package is designed for differential RNA-seq analysis and multi-omics datasets, it can be used for any data represented in a counts table. See the website for more information, documentation, and examples: https://ccbr.github.io/MOSuite/
+tags:
+- MOSuite
+- Bulk RNA-seq
+- visualization

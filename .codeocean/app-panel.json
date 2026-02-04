@@ -1,0 +1,260 @@
+{
+	"version": 1,
+	"named_parameters": true,
+	"general": {
+		"title": "MOSuite-filter-diff",
+		"instructions": "MOSuite filter differential expression results"
+	},
+	"datasets": [
+		{
+			"id": "82dccbec-cdd6-4d7f-a610-9cea832e4a8f",
+			"name": "multiOmicDataSet"
+		}
+	],
+	"categories": [
+		{
+			"id": "7Rr6IxOMDucKMImp",
+			"name": "Input data parameters",
+			"icon": "📂"
+		},
+		{
+			"id": "EzTg1ivlFDHEy9PI",
+			"name": "Basic",
+			"icon": "📂"
+		},
+		{
+			"id": "FvI4Z2eb9sjL47Jt",
+			"name": "Advanced",
+			"icon": "📂"
+		}
+	],
+	"parameters": [
+		{
+			"id": "ZvGNzbTfFDAiJ8Lv",
+			"category": "7Rr6IxOMDucKMImp",
+			"name": "multiOmicDataSet file pattern",
+			"param_name": "regex_moo",
+			"description": "Regex pattern used to locate the multiOmicDataSet .rds file",
+			"type": "text",
+			"value_type": "string",
+			"default_value": ".*\\\\.rds$"
+		},
+		{
+			"id": "w1kntbu7DvR0ABp2",
+			"category": "EzTg1ivlFDHEy9PI",
+			"name": "Feature ID column name",
+			"param_name": "feature_id_colname",
+			"description": "Column name for feature IDs",
+			"type": "text",
+			"value_type": "string"
+		},
+		{
+			"id": "A1nG6Kp8ZyQ9sL0v",
+			"category": "EzTg1ivlFDHEy9PI",
+			"name": "Significance column",
+			"param_name": "significance_column",
+			"description": "Column name for significance (e.g., pval or adjpval)",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "adjpval"
+		},
+		{
+			"id": "s5mL2nC8pQ4rT7x1",
+			"category": "EzTg1ivlFDHEy9PI",
+			"name": "Significance cutoff",
+			"param_name": "significance_cutoff",
+			"description": "Features must be below this significance cutoff",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "0.05"
+		},
+		{
+			"id": "G4pV1bH9nR2cD6e8",
+			"category": "EzTg1ivlFDHEy9PI",
+			"name": "Change column",
+			"param_name": "change_column",
+			"description": "Column name for change (e.g., logFC)",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "logFC"
+		},
+		{
+			"id": "Z8qL4xT2mY6hP1s3",
+			"category": "EzTg1ivlFDHEy9PI",
+			"name": "Change cutoff",
+			"param_name": "change_cutoff",
+			"description": "Absolute change threshold",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "1"
+		},
+		{
+			"id": "b7Yx3Fq0tU9nM2k5",
+			"category": "EzTg1ivlFDHEy9PI",
+			"name": "Filtering mode",
+			"param_name": "filtering_mode",
+			"description": "Include features meeting criteria in any or all contrasts (any/all)",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "any"
+		},
+		{
+			"id": "V2rD6kS9aW1jH5m8",
+			"category": "EzTg1ivlFDHEy9PI",
+			"name": "Include estimates",
+			"param_name": "include_estimates",
+			"description": "Comma-separated list of estimates to include",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "FC,logFC,tstat,pval,adjpval"
+		},
+		{
+			"id": "n4C2vR8pL7mQ3dX1",
+			"category": "EzTg1ivlFDHEy9PI",
+			"name": "Round estimates",
+			"param_name": "round_estimates",
+			"description": "Whether to round estimates",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "TRUE"
+		},
+		{
+			"id": "m9K2pX4bV7nT1eR6",
+			"category": "EzTg1ivlFDHEy9PI",
+			"name": "Contrast filter",
+			"param_name": "contrast_filter",
+			"description": "Whether to keep, remove, or ignore contrast filtering",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "none"
+		},
+		{
+			"id": "d8L1wZ3qS6cA9fT2",
+			"category": "EzTg1ivlFDHEy9PI",
+			"name": "Contrasts",
+			"param_name": "contrasts",
+			"description": "Comma-separated list of contrasts to keep/remove",
+			"type": "text",
+			"value_type": "string"
+		},
+		{
+			"id": "f3H9nQ2vW7kM1sP8",
+			"category": "EzTg1ivlFDHEy9PI",
+			"name": "Groups",
+			"param_name": "groups",
+			"description": "Comma-separated list of groups to keep/remove",
+			"type": "text",
+			"value_type": "string"
+		},
+		{
+			"id": "u7R4cB2mX9jL5nD1",
+			"category": "EzTg1ivlFDHEy9PI",
+			"name": "Groups filter",
+			"param_name": "groups_filter",
+			"description": "Whether to keep, remove, or ignore group filtering",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "none"
+		},
+		{
+			"id": "Q6tH8vY1xN4mB3c7",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Rounding decimals for percent",
+			"param_name": "rounding_decimal_for_percent_cells",
+			"description": "Decimal places for percent labels",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "0"
+		},
+		{
+			"id": "R8dK2pV5yQ1tS6x9",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Label font size",
+			"param_name": "label_font_size",
+			"description": "Font size for labels in plots",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "6"
+		},
+		{
+			"id": "p2X7mN4vT6cL1hQ9",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Label distance",
+			"param_name": "label_distance",
+			"description": "Distance of labels from bars",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "1"
+		},
+		{
+			"id": "h1V6xQ3mT9kB2nR7",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Y-axis expansion",
+			"param_name": "y_axis_expansion",
+			"description": "Expansion of the y-axis",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "0.08"
+		},
+		{
+			"id": "K9cP1rV6xT3mQ7nB",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Fill colors",
+			"param_name": "fill_colors",
+			"description": "Comma-separated fill colors for bars",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "steelblue1,whitesmoke"
+		},
+		{
+			"id": "L5mT8yQ2vR1nX6cP",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Pie chart in 3D",
+			"param_name": "pie_chart_in_3d",
+			"description": "Whether to draw pie charts in 3D",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "TRUE"
+		},
+		{
+			"id": "B6tQ1pV8mR3xN2cL",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Bar width",
+			"param_name": "bar_width",
+			"description": "Width of bars",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "0.4"
+		},
+		{
+			"id": "x3M7nQ1tV9kR5cB2",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Draw bar border",
+			"param_name": "draw_bar_border",
+			"description": "Whether to draw borders around bars",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "TRUE"
+		},
+		{
+			"id": "Y4nR2pX7mL1vQ6cT",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Plot type",
+			"param_name": "plot_type",
+			"description": "Plot type: bar or pie",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "bar"
+		},
+		{
+			"id": "t6P3mQ9vR1xK7nB2",
+			"category": "FvI4Z2eb9sjL47Jt",
+			"name": "Plot titles fontsize",
+			"param_name": "plot_titles_fontsize",
+			"description": "Font size for plot titles",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "12"
+		}
+	]
+}

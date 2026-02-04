@@ -1,0 +1,9 @@
+{
+	"version": 1,
+	"attached_datasets": [
+		{
+			"id": "82dccbec-cdd6-4d7f-a610-9cea832e4a8f",
+			"mount": "moo-diff"
+		}
+	]
+}
