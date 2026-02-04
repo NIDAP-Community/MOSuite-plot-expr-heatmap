@@ -24,7 +24,7 @@
 		},
 		{
 			"id": "FvI4Z2eb9sjL47Jt",
-			"name": "Clustering & Ordering",
+			"name": "Clustering \u0026 Ordering",
 			"icon": "📂"
 		},
 		{
@@ -190,36 +190,6 @@
 			"default_value": "average"
 		},
 		{
-			"id": "display_gene_dendrograms_id",
-			"category": "AdvGeneDisplay",
-			"name": "Display gene dendrograms",
-			"param_name": "display_gene_dendrograms",
-			"description": "Display dendrograms for gene clustering",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "TRUE"
-		},
-		{
-			"id": "display_gene_names_id",
-			"category": "AdvGeneDisplay",
-			"name": "Display gene names",
-			"param_name": "display_gene_names",
-			"description": "Display gene names in heatmap",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "FALSE"
-		},
-		{
-			"id": "gene_name_font_size_id",
-			"category": "AdvGeneDisplay",
-			"name": "Gene name font size",
-			"param_name": "gene_name_font_size",
-			"description": "Font size for gene names",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "4"
-		},
-		{
 			"id": "center_rescale_id",
 			"category": "FvI4Z2eb9sjL47Jt",
 			"name": "Center and rescale expression",
@@ -300,16 +270,6 @@
 			"default_value": "average"
 		},
 		{
-			"id": "display_smpl_dendrograms_id",
-			"category": "AdvSampleDisplay",
-			"name": "Display sample dendrograms",
-			"param_name": "display_smpl_dendrograms",
-			"description": "Display dendrograms for sample clustering",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "TRUE"
-		},
-		{
 			"id": "reorder_dendrogram_id",
 			"category": "FvI4Z2eb9sjL47Jt",
 			"name": "Reorder dendrogram",
@@ -327,6 +287,46 @@
 			"description": "Order for reordering dendrogram",
 			"type": "text",
 			"value_type": "string"
+		},
+		{
+			"id": "display_gene_dendrograms_id",
+			"category": "AdvGeneDisplay",
+			"name": "Display gene dendrograms",
+			"param_name": "display_gene_dendrograms",
+			"description": "Display dendrograms for gene clustering",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "TRUE"
+		},
+		{
+			"id": "display_gene_names_id",
+			"category": "AdvGeneDisplay",
+			"name": "Display gene names",
+			"param_name": "display_gene_names",
+			"description": "Display gene names in heatmap",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "FALSE"
+		},
+		{
+			"id": "gene_name_font_size_id",
+			"category": "AdvGeneDisplay",
+			"name": "Gene name font size",
+			"param_name": "gene_name_font_size",
+			"description": "Font size for gene names",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "4"
+		},
+		{
+			"id": "display_smpl_dendrograms_id",
+			"category": "AdvSampleDisplay",
+			"name": "Display sample dendrograms",
+			"param_name": "display_smpl_dendrograms",
+			"description": "Display dendrograms for sample clustering",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "TRUE"
 		},
 		{
 			"id": "display_smpl_names_id",
@@ -466,6 +466,11 @@
 			"type": "text",
 			"value_type": "string",
 			"default_value": "FALSE"
+		}
+	],
+	"results": [
+		{
+			"file_name": "figures/heatmap/expr_heatmap.png"
 		}
 	]
 }
