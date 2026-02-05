@@ -2,6 +2,8 @@
 
 ## development version
 
+- Standardize the app panel across MOSuite capsules.
+
 ## v1.0
 
 Initial release
