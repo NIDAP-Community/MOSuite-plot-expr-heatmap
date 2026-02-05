@@ -48,16 +48,6 @@
 	],
 	"parameters": [
 		{
-			"id": "ZvGNzbTfFDAiJ8Lv",
-			"category": "7Rr6IxOMDucKMImp",
-			"name": "multiOmicDataSet file pattern",
-			"param_name": "regex_moo",
-			"description": "Regex pattern used to locate the multiOmicDataSet .rds file",
-			"type": "text",
-			"value_type": "string",
-			"default_value": ".*\\\\.rds$"
-		},
-		{
 			"id": "count_type_id",
 			"category": "FvI4Z2eb9sjL47Jt",
 			"name": "Count type",
