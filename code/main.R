@@ -5,7 +5,7 @@ library(glue)
 library(readr)
 library(stringr)
 library(dplyr)
-devtools::load_all("./code/MOSuite")
+devtools::load_all("/code/MOSuite")
 
 # set up capsule environment
 setup_capsule_environment()
