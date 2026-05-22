@@ -1,0 +1,9 @@
+name: sync-code-ocean
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+
+jobs:
+  sync-code-ocean:
+    runs-on: ubuntu-latest
