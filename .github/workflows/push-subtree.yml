@@ -1,0 +1,9 @@
+name: push-subtree
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+
+jobs:
+  push-subtree:
+    runs-on: ubuntu-latest

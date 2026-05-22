@@ -1,0 +1,41 @@
+name: pull-subtree
+
+on:
+  repository_dispatch:
+    types: [release]
+  workflow_dispatch:
+
+jobs:
+  pull-subtree:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        config:
+          - { remote: CCBR/MOSuite, local: code/MOSuite }
+    steps:
+      - name: Generate a token
+        id: generate-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.CCBR_BOT_APP_ID }}
+          private-key: ${{ secrets.CCBR_BOT_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+      - uses: actions/checkout@v6
+        with:
+          token: ${{ steps.generate-token.outputs.token }}
+      - name: git config
+        run: |
+          git config --global user.name "CCBR-bot"
+          git config --global user.email "258092125+ccbr-bot@users.noreply.github.com"
+      - name: Pull subtree
+        env:
+          local_branch_name: pull/${{ matrix.config.remote }}
+          remote_branch_name: main # TODO use release ref from repo dispatch payload
+        run: |
+          git switch -c ${{ env.local_branch_name }}
+          git remote add -f subtree-remote ${{ matrix.config.remote }}
+          git fetch subtree-remote main
+          git subtree pull --prefix ${{ matrix.config.local }} subtree-remote ${{ env.remote_branch_name }} --squash
+          git add ${{ matrix.config.local }}
+          git commit -m 'chore: pull subtree from ${{ matrix.config.remote}} @ ${{ env.remote_branch_name}}'
+          gh pr create --fill-first
