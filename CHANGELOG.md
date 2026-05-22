@@ -2,6 +2,8 @@
 
 ## development version
 
+## v3.0
+
 - The MOSuite package is now available in `code/MOSuite`. (#2)
 - Use MOSuite v0.3.1.
 
