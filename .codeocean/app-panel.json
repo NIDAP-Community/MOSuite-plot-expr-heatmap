@@ -16,40 +16,40 @@
 			"id": "7Rr6IxOMDucKMImp",
 			"name": "Input Data Parameters",
 			"description": "Options for defining input data",
-			"icon": "📁"
+			"icon": "\ud83d\udcc1"
 		},
 		{
 			"id": "EzTg1ivlFDHEy9PI",
 			"name": "Basic",
-			"icon": "📂"
+			"icon": "\ud83d\udcc2"
 		},
 		{
 			"id": "FvI4Z2eb9sjL47Jt",
 			"name": "Advanced",
 			"description": "Advanced clustering and ordering options",
-			"icon": "📂"
+			"icon": "\ud83d\udcc2"
 		},
 		{
 			"id": "AdvGeneDisplay",
 			"name": "Visualization",
 			"description": "Visualization and plotting options",
-			"icon": "📊"
+			"icon": "\ud83d\udcca"
 		},
 		{
 			"id": "AdvSampleDisplay",
 			"name": "Sample Display",
-			"icon": "📂"
+			"icon": "\ud83d\udcc2"
 		},
 		{
 			"id": "AdvHeatmapStyle",
 			"name": "Heatmap Styling",
-			"icon": "📂"
+			"icon": "\ud83d\udcc2"
 		}
 	],
 	"parameters": [
 		{
 			"id": "count_type_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "EzTg1ivlFDHEy9PI",
 			"name": "Count type",
 			"param_name": "count_type",
 			"description": "Type of counts to use (e.g., filt, norm)",
