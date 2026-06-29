@@ -53,9 +53,15 @@
 			"name": "Count type",
 			"param_name": "count_type",
 			"description": "Type of counts to use (e.g., filt, norm)",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "filt"
+			"default_value": "filt",
+			"extra_data": [
+				"raw",
+				"clean",
+				"filt",
+				"norm"
+			]
 		},
 		{
 			"id": "sub_count_type_id",
