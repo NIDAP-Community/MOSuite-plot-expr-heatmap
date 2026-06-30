@@ -14,7 +14,7 @@
 	"categories": [
 		{
 			"id": "7Rr6IxOMDucKMImp",
-			"name": "Basic Category",
+			"name": "Basic",
 			"description": "Options for defining input data",
 			"icon": "\ud83d\udcc1"
 		},
@@ -48,7 +48,7 @@
 		},
 		{
 			"id": "AdvHeatmapStyle",
-			"name": "Visualization Category",
+			"name": "Visualizations",
 			"icon": "\ud83d\udcc2"
 		},
 		{
