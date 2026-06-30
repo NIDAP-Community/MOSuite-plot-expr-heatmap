@@ -36,15 +36,15 @@
 			"icon": "\ud83d\udcca"
 		},
 		{
-			"id": "SampleOrder",
-			"name": "Sample Order",
-			"description": "Sample clustering and column ordering options",
+			"id": "GeneDisplay",
+			"name": "Gene Display",
+			"description": "Gene label and dendrogram display options",
 			"icon": "\ud83d\udcca"
 		},
 		{
-			"id": "AdvGeneDisplay",
-			"name": "Visualization",
-			"description": "Visualization and plotting options",
+			"id": "SampleOrder",
+			"name": "Sample Order",
+			"description": "Sample clustering and column ordering options",
 			"icon": "\ud83d\udcca"
 		},
 		{
@@ -257,58 +257,6 @@
 			]
 		},
 		{
-			"id": "arrange_sample_cols_id",
-			"category": "SampleOrder",
-			"name": "Arrange sample columns",
-			"param_name": "arrange_sample_columns",
-			"description": "Arrange sample columns",
-			"type": "list",
-			"value_type": "string",
-			"default_value": "TRUE",
-			"extra_data": [
-				"TRUE",
-				"FALSE"
-			]
-		},
-		{
-			"id": "order_by_gene_expr_id",
-			"category": "SampleOrder",
-			"name": "Order by gene expression",
-			"param_name": "order_by_gene_expression",
-			"description": "Order samples by gene expression",
-			"type": "list",
-			"value_type": "string",
-			"default_value": "FALSE",
-			"extra_data": [
-				"TRUE",
-				"FALSE"
-			]
-		},
-		{
-			"id": "gene_order_cols_id",
-			"category": "SampleOrder",
-			"name": "Gene to order columns",
-			"param_name": "gene_to_order_columns",
-			"description": "Gene to use for ordering columns",
-			"type": "text",
-			"value_type": "string",
-			"default_value": " "
-		},
-		{
-			"id": "gene_expr_order_id",
-			"category": "SampleOrder",
-			"name": "Gene expression order",
-			"param_name": "gene_expression_order",
-			"description": "Order expression values (low_to_high or high_to_low)",
-			"type": "list",
-			"value_type": "string",
-			"default_value": "low_to_high",
-			"extra_data": [
-				"low_to_high",
-				"high_to_low"
-			]
-		},
-		{
 			"id": "smpl_distance_metric_id",
 			"category": "SampleOrder",
 			"name": "Sample distance metric",
@@ -368,8 +316,60 @@
 			"value_type": "string"
 		},
 		{
+			"id": "arrange_sample_cols_id",
+			"category": "SampleOrder",
+			"name": "Arrange sample columns",
+			"param_name": "arrange_sample_columns",
+			"description": "Arrange sample columns",
+			"type": "list",
+			"value_type": "string",
+			"default_value": "TRUE",
+			"extra_data": [
+				"TRUE",
+				"FALSE"
+			]
+		},
+		{
+			"id": "order_by_gene_expr_id",
+			"category": "SampleOrder",
+			"name": "Order by gene expression",
+			"param_name": "order_by_gene_expression",
+			"description": "Order samples by gene expression",
+			"type": "list",
+			"value_type": "string",
+			"default_value": "FALSE",
+			"extra_data": [
+				"TRUE",
+				"FALSE"
+			]
+		},
+		{
+			"id": "gene_order_cols_id",
+			"category": "SampleOrder",
+			"name": "Gene to order columns",
+			"param_name": "gene_to_order_columns",
+			"description": "Gene to use for ordering columns",
+			"type": "text",
+			"value_type": "string",
+			"default_value": " "
+		},
+		{
+			"id": "gene_expr_order_id",
+			"category": "SampleOrder",
+			"name": "Gene expression order",
+			"param_name": "gene_expression_order",
+			"description": "Order expression values (low_to_high or high_to_low)",
+			"type": "list",
+			"value_type": "string",
+			"default_value": "low_to_high",
+			"extra_data": [
+				"low_to_high",
+				"high_to_low"
+			]
+		},
+		{
 			"id": "display_gene_dendrograms_id",
-			"category": "AdvGeneDisplay",
+			"category": "GeneDisplay",
 			"name": "Display gene dendrograms",
 			"param_name": "display_gene_dendrograms",
 			"description": "Display dendrograms for gene clustering",
@@ -383,7 +383,7 @@
 		},
 		{
 			"id": "display_gene_names_id",
-			"category": "AdvGeneDisplay",
+			"category": "GeneDisplay",
 			"name": "Display gene names",
 			"param_name": "display_gene_names",
 			"description": "Display gene names in heatmap",
@@ -397,7 +397,7 @@
 		},
 		{
 			"id": "gene_name_font_size_id",
-			"category": "AdvGeneDisplay",
+			"category": "GeneDisplay",
 			"name": "Gene name font size",
 			"param_name": "gene_name_font_size",
 			"description": "Font size for gene names",
