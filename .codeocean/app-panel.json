@@ -186,9 +186,15 @@
 			"name": "Gene distance metric",
 			"param_name": "gene_distance_metric",
 			"description": "Distance metric for gene clustering",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "correlation"
+			"default_value": "correlation",
+			"extra_data": [
+				"correlation",
+				"euclidean",
+				"maximum",
+				"manhattan"
+			]
 		},
 		{
 			"id": "gene_clustering_method_id",
@@ -196,9 +202,19 @@
 			"name": "Gene clustering method",
 			"param_name": "gene_clustering_method",
 			"description": "Clustering method for genes",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "average"
+			"default_value": "average",
+			"extra_data": [
+				"average",
+				"complete",
+				"single",
+				"mcquitty",
+				"ward.D",
+				"ward.D2",
+				"centroid",
+				"median"
+			]
 		},
 		{
 			"id": "center_rescale_id",
