@@ -24,12 +24,6 @@
 			"icon": "\ud83d\udcc2"
 		},
 		{
-			"id": "FvI4Z2eb9sjL47Jt",
-			"name": "Advanced",
-			"description": "Advanced parameters",
-			"icon": "\ud83d\udcc2"
-		},
-		{
 			"id": "GeneOrder",
 			"name": "Gene Order",
 			"description": "Gene clustering and row ordering options",
@@ -50,11 +44,17 @@
 		{
 			"id": "AdvSampleDisplay",
 			"name": "Sample Display",
-			"icon": "\ud83d\udcc2"
+			"icon": "\ud83d\udcca"
 		},
 		{
 			"id": "AdvHeatmapStyle",
-			"name": "Heatmap Styling",
+			"name": "Visualization Category",
+			"icon": "\ud83d\udcc2"
+		},
+		{
+			"id": "FvI4Z2eb9sjL47Jt",
+			"name": "Advanced",
+			"description": "Advanced parameters",
 			"icon": "\ud83d\udcc2"
 		}
 	],
