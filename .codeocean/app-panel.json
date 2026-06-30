@@ -26,8 +26,20 @@
 		{
 			"id": "FvI4Z2eb9sjL47Jt",
 			"name": "Advanced",
-			"description": "Advanced clustering and ordering options",
+			"description": "Advanced parameters",
 			"icon": "\ud83d\udcc2"
+		},
+		{
+			"id": "GeneOrder",
+			"name": "Gene Order",
+			"description": "Gene clustering and row ordering options",
+			"icon": "\ud83d\udcca"
+		},
+		{
+			"id": "SampleOrder",
+			"name": "Sample Order",
+			"description": "Sample clustering and column ordering options",
+			"icon": "\ud83d\udcca"
 		},
 		{
 			"id": "AdvGeneDisplay",
@@ -168,7 +180,7 @@
 		},
 		{
 			"id": "cluster_genes_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "GeneOrder",
 			"name": "Cluster genes",
 			"param_name": "cluster_genes",
 			"description": "Cluster genes in heatmap",
@@ -182,7 +194,7 @@
 		},
 		{
 			"id": "gene_distance_metric_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "GeneOrder",
 			"name": "Gene distance metric",
 			"param_name": "gene_distance_metric",
 			"description": "Distance metric for gene clustering",
@@ -198,7 +210,7 @@
 		},
 		{
 			"id": "gene_clustering_method_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "GeneOrder",
 			"name": "Gene clustering method",
 			"param_name": "gene_clustering_method",
 			"description": "Clustering method for genes",
@@ -218,7 +230,7 @@
 		},
 		{
 			"id": "center_rescale_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "GeneOrder",
 			"name": "Center and rescale expression",
 			"param_name": "center_and_rescale_expression",
 			"description": "Center and rescale expression values",
@@ -232,7 +244,7 @@
 		},
 		{
 			"id": "cluster_samples_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "SampleOrder",
 			"name": "Cluster samples",
 			"param_name": "cluster_samples",
 			"description": "Cluster samples in heatmap",
@@ -246,7 +258,7 @@
 		},
 		{
 			"id": "arrange_sample_cols_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "SampleOrder",
 			"name": "Arrange sample columns",
 			"param_name": "arrange_sample_columns",
 			"description": "Arrange sample columns",
@@ -260,7 +272,7 @@
 		},
 		{
 			"id": "order_by_gene_expr_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "SampleOrder",
 			"name": "Order by gene expression",
 			"param_name": "order_by_gene_expression",
 			"description": "Order samples by gene expression",
@@ -274,7 +286,7 @@
 		},
 		{
 			"id": "gene_order_cols_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "SampleOrder",
 			"name": "Gene to order columns",
 			"param_name": "gene_to_order_columns",
 			"description": "Gene to use for ordering columns",
@@ -284,37 +296,57 @@
 		},
 		{
 			"id": "gene_expr_order_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "SampleOrder",
 			"name": "Gene expression order",
 			"param_name": "gene_expression_order",
 			"description": "Order expression values (low_to_high or high_to_low)",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "low_to_high"
+			"default_value": "low_to_high",
+			"extra_data": [
+				"low_to_high",
+				"high_to_low"
+			]
 		},
 		{
 			"id": "smpl_distance_metric_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "SampleOrder",
 			"name": "Sample distance metric",
 			"param_name": "smpl_distance_metric",
 			"description": "Distance metric for sample clustering",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "correlation"
+			"default_value": "correlation",
+			"extra_data": [
+				"correlation",
+				"euclidean",
+				"maximum",
+				"manhattan"
+			]
 		},
 		{
 			"id": "smpl_clustering_method_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "SampleOrder",
 			"name": "Sample clustering method",
 			"param_name": "smpl_clustering_method",
 			"description": "Clustering method for samples",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "average"
+			"default_value": "average",
+			"extra_data": [
+				"average",
+				"complete",
+				"single",
+				"mcquitty",
+				"ward.D",
+				"ward.D2",
+				"centroid",
+				"median"
+			]
 		},
 		{
 			"id": "reorder_dendrogram_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "SampleOrder",
 			"name": "Reorder dendrogram",
 			"param_name": "reorder_dendrogram",
 			"description": "Reorder dendrogram",
@@ -328,7 +360,7 @@
 		},
 		{
 			"id": "reorder_dendrogram_order_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "SampleOrder",
 			"name": "Reorder dendrogram order",
 			"param_name": "reorder_dendrogram_order",
 			"description": "Order for reordering dendrogram",
