@@ -14,48 +14,66 @@
 	"categories": [
 		{
 			"id": "7Rr6IxOMDucKMImp",
-			"name": "Input Data Parameters",
+			"name": "Basic",
 			"description": "Options for defining input data",
-			"icon": "📁"
+			"icon": "\ud83d\udcc1"
 		},
 		{
 			"id": "EzTg1ivlFDHEy9PI",
-			"name": "Basic",
-			"icon": "📂"
+			"name": "Gene Selection",
+			"icon": "\ud83d\udcc2"
 		},
 		{
-			"id": "FvI4Z2eb9sjL47Jt",
-			"name": "Advanced",
-			"description": "Advanced clustering and ordering options",
-			"icon": "📂"
+			"id": "GeneOrder",
+			"name": "Gene Order",
+			"description": "Gene clustering and row ordering options",
+			"icon": "\ud83d\udcca"
 		},
 		{
-			"id": "AdvGeneDisplay",
-			"name": "Visualization",
-			"description": "Visualization and plotting options",
-			"icon": "📊"
+			"id": "GeneDisplay",
+			"name": "Gene Display",
+			"description": "Gene label and dendrogram display options",
+			"icon": "\ud83d\udcca"
+		},
+		{
+			"id": "SampleOrder",
+			"name": "Sample Order",
+			"description": "Sample clustering and column ordering options",
+			"icon": "\ud83d\udcca"
 		},
 		{
 			"id": "AdvSampleDisplay",
 			"name": "Sample Display",
-			"icon": "📂"
+			"icon": "\ud83d\udcca"
 		},
 		{
 			"id": "AdvHeatmapStyle",
-			"name": "Heatmap Styling",
-			"icon": "📂"
+			"name": "Heatmap Display",
+			"icon": "\ud83d\udcca"
+		},
+		{
+			"id": "FvI4Z2eb9sjL47Jt",
+			"name": "Advanced",
+			"description": "Advanced parameters",
+			"icon": "\ud83d\udcc2"
 		}
 	],
 	"parameters": [
 		{
 			"id": "count_type_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "7Rr6IxOMDucKMImp",
 			"name": "Count type",
 			"param_name": "count_type",
 			"description": "Type of counts to use (e.g., filt, norm)",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "filt"
+			"default_value": "filt",
+			"extra_data": [
+				"raw",
+				"clean",
+				"filt",
+				"norm"
+			]
 		},
 		{
 			"id": "sub_count_type_id",
@@ -118,9 +136,13 @@
 			"name": "Include all genes",
 			"param_name": "include_all_genes",
 			"description": "Include all genes in heatmap",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "FALSE"
+			"default_value": "FALSE",
+			"extra_data": [
+				"TRUE",
+				"FALSE"
+			]
 		},
 		{
 			"id": "filter_top_genes_id",
@@ -128,9 +150,13 @@
 			"name": "Filter top genes by variance",
 			"param_name": "filter_top_genes_by_variance",
 			"description": "Filter genes by variance",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "TRUE"
+			"default_value": "TRUE",
+			"extra_data": [
+				"TRUE",
+				"FALSE"
+			]
 		},
 		{
 			"id": "top_genes_count_id",
@@ -154,77 +180,172 @@
 		},
 		{
 			"id": "cluster_genes_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "GeneOrder",
 			"name": "Cluster genes",
 			"param_name": "cluster_genes",
 			"description": "Cluster genes in heatmap",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "TRUE"
+			"default_value": "TRUE",
+			"extra_data": [
+				"TRUE",
+				"FALSE"
+			]
 		},
 		{
 			"id": "gene_distance_metric_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "GeneOrder",
 			"name": "Gene distance metric",
 			"param_name": "gene_distance_metric",
 			"description": "Distance metric for gene clustering",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "correlation"
+			"default_value": "correlation",
+			"extra_data": [
+				"correlation",
+				"euclidean",
+				"maximum",
+				"manhattan"
+			]
 		},
 		{
 			"id": "gene_clustering_method_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "GeneOrder",
 			"name": "Gene clustering method",
 			"param_name": "gene_clustering_method",
 			"description": "Clustering method for genes",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "average"
+			"default_value": "average",
+			"extra_data": [
+				"average",
+				"complete",
+				"single",
+				"mcquitty",
+				"ward.D",
+				"ward.D2",
+				"centroid",
+				"median"
+			]
 		},
 		{
 			"id": "center_rescale_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "GeneOrder",
 			"name": "Center and rescale expression",
 			"param_name": "center_and_rescale_expression",
-			"description": "Center and rescale expression values",
-			"type": "text",
+			"description": "Transform the expression data before plotting by centering and scaling each gene across included samples. This affects clustering, ordering, and heatmap values.",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "TRUE"
+			"default_value": "TRUE",
+			"extra_data": [
+				"TRUE",
+				"FALSE"
+			]
 		},
 		{
 			"id": "cluster_samples_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "SampleOrder",
 			"name": "Cluster samples",
 			"param_name": "cluster_samples",
 			"description": "Cluster samples in heatmap",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "FALSE"
+			"default_value": "FALSE",
+			"extra_data": [
+				"TRUE",
+				"FALSE"
+			]
+		},
+		{
+			"id": "smpl_distance_metric_id",
+			"category": "SampleOrder",
+			"name": "Sample distance metric",
+			"param_name": "smpl_distance_metric",
+			"description": "Distance metric for sample clustering",
+			"type": "list",
+			"value_type": "string",
+			"default_value": "correlation",
+			"extra_data": [
+				"correlation",
+				"euclidean",
+				"maximum",
+				"manhattan"
+			]
+		},
+		{
+			"id": "smpl_clustering_method_id",
+			"category": "SampleOrder",
+			"name": "Sample clustering method",
+			"param_name": "smpl_clustering_method",
+			"description": "Clustering method for samples",
+			"type": "list",
+			"value_type": "string",
+			"default_value": "average",
+			"extra_data": [
+				"average",
+				"complete",
+				"single",
+				"mcquitty",
+				"ward.D",
+				"ward.D2",
+				"centroid",
+				"median"
+			]
+		},
+		{
+			"id": "reorder_dendrogram_id",
+			"category": "SampleOrder",
+			"name": "Reorder dendrogram",
+			"param_name": "reorder_dendrogram",
+			"description": "Reorder dendrogram",
+			"type": "list",
+			"value_type": "string",
+			"default_value": "FALSE",
+			"extra_data": [
+				"TRUE",
+				"FALSE"
+			]
+		},
+		{
+			"id": "reorder_dendrogram_order_id",
+			"category": "SampleOrder",
+			"name": "Reorder dendrogram order",
+			"param_name": "reorder_dendrogram_order",
+			"description": "Order for reordering dendrogram",
+			"type": "text",
+			"value_type": "string"
 		},
 		{
 			"id": "arrange_sample_cols_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "SampleOrder",
 			"name": "Arrange sample columns",
 			"param_name": "arrange_sample_columns",
 			"description": "Arrange sample columns",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "TRUE"
+			"default_value": "TRUE",
+			"extra_data": [
+				"TRUE",
+				"FALSE"
+			]
 		},
 		{
 			"id": "order_by_gene_expr_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "SampleOrder",
 			"name": "Order by gene expression",
 			"param_name": "order_by_gene_expression",
 			"description": "Order samples by gene expression",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "FALSE"
+			"default_value": "FALSE",
+			"extra_data": [
+				"TRUE",
+				"FALSE"
+			]
 		},
 		{
 			"id": "gene_order_cols_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "SampleOrder",
 			"name": "Gene to order columns",
 			"param_name": "gene_to_order_columns",
 			"description": "Gene to use for ordering columns",
@@ -234,76 +355,49 @@
 		},
 		{
 			"id": "gene_expr_order_id",
-			"category": "FvI4Z2eb9sjL47Jt",
+			"category": "SampleOrder",
 			"name": "Gene expression order",
 			"param_name": "gene_expression_order",
 			"description": "Order expression values (low_to_high or high_to_low)",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "low_to_high"
-		},
-		{
-			"id": "smpl_distance_metric_id",
-			"category": "FvI4Z2eb9sjL47Jt",
-			"name": "Sample distance metric",
-			"param_name": "smpl_distance_metric",
-			"description": "Distance metric for sample clustering",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "correlation"
-		},
-		{
-			"id": "smpl_clustering_method_id",
-			"category": "FvI4Z2eb9sjL47Jt",
-			"name": "Sample clustering method",
-			"param_name": "smpl_clustering_method",
-			"description": "Clustering method for samples",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "average"
-		},
-		{
-			"id": "reorder_dendrogram_id",
-			"category": "FvI4Z2eb9sjL47Jt",
-			"name": "Reorder dendrogram",
-			"param_name": "reorder_dendrogram",
-			"description": "Reorder dendrogram",
-			"type": "text",
-			"value_type": "string",
-			"default_value": "FALSE"
-		},
-		{
-			"id": "reorder_dendrogram_order_id",
-			"category": "FvI4Z2eb9sjL47Jt",
-			"name": "Reorder dendrogram order",
-			"param_name": "reorder_dendrogram_order",
-			"description": "Order for reordering dendrogram",
-			"type": "text",
-			"value_type": "string"
+			"default_value": "low_to_high",
+			"extra_data": [
+				"low_to_high",
+				"high_to_low"
+			]
 		},
 		{
 			"id": "display_gene_dendrograms_id",
-			"category": "AdvGeneDisplay",
+			"category": "GeneDisplay",
 			"name": "Display gene dendrograms",
 			"param_name": "display_gene_dendrograms",
 			"description": "Display dendrograms for gene clustering",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "TRUE"
+			"default_value": "TRUE",
+			"extra_data": [
+				"TRUE",
+				"FALSE"
+			]
 		},
 		{
 			"id": "display_gene_names_id",
-			"category": "AdvGeneDisplay",
+			"category": "GeneDisplay",
 			"name": "Display gene names",
 			"param_name": "display_gene_names",
 			"description": "Display gene names in heatmap",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "FALSE"
+			"default_value": "FALSE",
+			"extra_data": [
+				"TRUE",
+				"FALSE"
+			]
 		},
 		{
 			"id": "gene_name_font_size_id",
-			"category": "AdvGeneDisplay",
+			"category": "GeneDisplay",
 			"name": "Gene name font size",
 			"param_name": "gene_name_font_size",
 			"description": "Font size for gene names",
@@ -317,9 +411,13 @@
 			"name": "Display sample dendrograms",
 			"param_name": "display_smpl_dendrograms",
 			"description": "Display dendrograms for sample clustering",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "TRUE"
+			"default_value": "TRUE",
+			"extra_data": [
+				"TRUE",
+				"FALSE"
+			]
 		},
 		{
 			"id": "display_smpl_names_id",
@@ -327,9 +425,13 @@
 			"name": "Display sample names",
 			"param_name": "display_sample_names",
 			"description": "Display sample names in heatmap",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "TRUE"
+			"default_value": "TRUE",
+			"extra_data": [
+				"TRUE",
+				"FALSE"
+			]
 		},
 		{
 			"id": "sample_name_font_size_id",
@@ -357,9 +459,13 @@
 			"name": "Assign group colors",
 			"param_name": "assign_group_colors",
 			"description": "Assign colors to sample groups",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "FALSE"
+			"default_value": "FALSE",
+			"extra_data": [
+				"TRUE",
+				"FALSE"
+			]
 		},
 		{
 			"id": "assign_color_sample_groups_id",
@@ -405,10 +511,14 @@
 			"category": "AdvHeatmapStyle",
 			"name": "Autoscale heatmap color",
 			"param_name": "autoscale_heatmap_color",
-			"description": "Automatically scale heatmap colors",
-			"type": "text",
+			"description": "Automatically set the heatmap color range from the plotted data minimum and maximum. This changes only color mapping, not the expression data.",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "TRUE"
+			"default_value": "TRUE",
+			"extra_data": [
+				"TRUE",
+				"FALSE"
+			]
 		},
 		{
 			"id": "set_min_heatmap_color_id",
@@ -456,9 +566,13 @@
 			"name": "Display numbers",
 			"param_name": "display_numbers",
 			"description": "Display numbers in heatmap cells",
-			"type": "text",
+			"type": "list",
 			"value_type": "string",
-			"default_value": "FALSE"
+			"default_value": "FALSE",
+			"extra_data": [
+				"TRUE",
+				"FALSE"
+			]
 		}
 	],
 	"results": [
