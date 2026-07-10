@@ -3,6 +3,8 @@
 ## development version
 
 - Improved the Code Ocean parameter UI for the plot expr heatmap capsule (#4, @phoman14).
+- Use MOSuite v0.3.2. (#1, @kelly-sovacool)
+
 ## v3.0
 
 - The MOSuite package is now available in `code/MOSuite`. (#2)
