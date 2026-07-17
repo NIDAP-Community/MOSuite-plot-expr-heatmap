@@ -67,13 +67,14 @@
 			"description": "Type of counts to use (e.g., filt, norm)",
 			"type": "list",
 			"value_type": "string",
-			"default_value": "filt",
+			"default_value": null,
 			"required": true,
 			"extra_data": [
 				"raw",
 				"clean",
 				"filt",
-				"norm"
+				"norm",
+				"batch"
 			]
 		},
 		{
