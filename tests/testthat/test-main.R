@@ -12,6 +12,12 @@ test_that("main.R CLI creates expression heatmap plot", {
   expect_plot_created(setup$results_dir)
 })
 
+test_that("main.R CLI plots supported count types", {
+  for (count_type in c("raw", "filt", "norm", "batch")) {
+    expect_main_runs_with_count_type(count_type)
+  }
+})
+
 test_that("run wrapper executes and creates expression heatmap plot", {
   setup <- setup_cli_workspace("mosuite_plot_expr_heatmap_run_test_")
   on.exit(unlink(setup$workspace, recursive = TRUE), add = TRUE)
