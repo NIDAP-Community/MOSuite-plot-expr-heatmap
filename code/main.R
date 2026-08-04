@@ -303,5 +303,14 @@ plot_expr_heatmap(
   assign_color_to_sample_groups = parse_optional_vector(
     args$assign_color_to_sample_groups
   ),
-  group_colors = parse_optional_vector(args$group_colors)
+  group_colors = parse_optional_vector(args$group_colors),
+  heatmap_color_scheme = args$heatmap_color_scheme,
+  autoscale_heatmap_color = args$autoscale_heatmap_color,
+  set_min_heatmap_color = args$set_min_heatmap_color,
+  set_max_heatmap_color = args$set_max_heatmap_color,
+  aspect_ratio = args$aspect_ratio,
+  legend_font_size = args$legend_font_size,
+  gene_name_font_size = args$gene_name_font_size,
+  sample_name_font_size = args$sample_name_font_size,
+  display_numbers = args$display_numbers
 )
