@@ -15,12 +15,6 @@ parser <- ArgumentParser()
 
 parser$add_argument("--count_type", type = "character", default = "filt")
 parser$add_argument(
-  "--sub_count_type",
-  type = "character",
-  default = NULL,
-  help = "Sub count type if count_type is a list"
-)
-parser$add_argument(
   "--sample_id_colname",
   type = "character",
   default = NULL,
@@ -262,6 +256,7 @@ parser$add_argument(
 )
 
 args <- parser$parse_args()
+sub_count_type <- if (identical(args$count_type, "norm")) "voom" else NULL
 
 # load multiOmicDataSet from data directory
 moo <- load_moo_from_data_dir()
@@ -270,7 +265,7 @@ moo <- load_moo_from_data_dir()
 plot_expr_heatmap(
   moo,
   count_type = args$count_type,
-  sub_count_type = args$sub_count_type,
+  sub_count_type = sub_count_type,
   sample_id_colname = args$sample_id_colname,
   feature_id_colname = args$feature_id_colname,
   group_colname = args$group_colname,

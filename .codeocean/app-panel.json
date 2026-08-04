@@ -78,15 +78,6 @@
 			]
 		},
 		{
-			"id": "sub_count_type_id",
-			"category": "FvI4Z2eb9sjL47Jt",
-			"name": "Sub count type",
-			"param_name": "sub_count_type",
-			"description": "Used if count_type is a list in the counts slot. This must be a name in moo@counts[[count_type]].",
-			"type": "text",
-			"value_type": "string"
-		},
-		{
 			"id": "sample_id_colname_id",
 			"category": "FvI4Z2eb9sjL47Jt",
 			"name": "Sample ID column name",
