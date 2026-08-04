@@ -73,3 +73,31 @@ common_cli_args <- c(
   "--display_gene_names=FALSE",
   "--display_sample_names=TRUE"
 )
+
+expect_main_runs_with_count_type <- function(count_type) {
+  setup <- setup_cli_workspace(
+    paste0("mosuite_plot_expr_heatmap_", count_type, "_test_")
+  )
+  on.exit(unlink(setup$workspace, recursive = TRUE), add = TRUE)
+
+  old_wd <- getwd()
+  setwd(setup$code_dir)
+  on.exit(setwd(old_wd), add = TRUE)
+
+  exit_code <- system2(
+    "Rscript",
+    args = c(
+      "main.R",
+      sprintf("--count_type=%s", count_type),
+      "--display_gene_names=FALSE",
+      "--display_sample_names=TRUE"
+    )
+  )
+  expect_equal(
+    exit_code,
+    0,
+    info = paste("main.R should plot", count_type, "counts")
+  )
+
+  expect_plot_created(setup$results_dir)
+}

@@ -1,3 +1,33 @@
+test_that("every app panel parameter is accepted and used by main.R", {
+  repo_root <- normalizePath(
+    file.path(testthat::test_path(), "..", ".."),
+    mustWork = TRUE
+  )
+  panel <- jsonlite::fromJSON(
+    file.path(repo_root, ".codeocean", "app-panel.json")
+  )
+  main_text <- paste(
+    readLines(file.path(repo_root, "code", "main.R"), warn = FALSE),
+    collapse = "\n"
+  )
+  param_names <- panel$parameters$param_name
+  expect_true(length(param_names) > 0)
+  for (param_name in param_names) {
+    expect_match(
+      main_text,
+      sprintf('"--%s"', param_name),
+      fixed = TRUE,
+      info = sprintf("main.R should define a --%s CLI argument", param_name)
+    )
+    expect_match(
+      main_text,
+      sprintf("args$%s", param_name),
+      fixed = TRUE,
+      info = sprintf("main.R should read args$%s", param_name)
+    )
+  }
+})
+
 test_that("main.R CLI creates expression heatmap plot", {
   setup <- setup_cli_workspace("mosuite_plot_expr_heatmap_test_")
   on.exit(unlink(setup$workspace, recursive = TRUE), add = TRUE)
@@ -10,6 +40,12 @@ test_that("main.R CLI creates expression heatmap plot", {
   expect_equal(exit_code, 0, info = "main.R should execute without error")
 
   expect_plot_created(setup$results_dir)
+})
+
+test_that("main.R CLI plots supported count types", {
+  for (count_type in c("raw", "filt", "norm", "batch")) {
+    expect_main_runs_with_count_type(count_type)
+  }
 })
 
 test_that("run wrapper executes and creates expression heatmap plot", {
