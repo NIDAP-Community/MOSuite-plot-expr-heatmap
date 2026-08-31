@@ -254,15 +254,43 @@ parser$add_argument(
   default = FALSE,
   help = "Display numbers in heatmap"
 )
+parser$add_argument(
+  "--image_width",
+  type = "double",
+  default = 10,
+  help = "Output image width in inches"
+)
+parser$add_argument(
+  "--image_height",
+  type = "double",
+  default = 10,
+  help = "Output image height in inches"
+)
+parser$add_argument(
+  "--dpi",
+  type = "integer",
+  default = 300,
+  help = "Output image resolution in dots per inch"
+)
 
 args <- parser$parse_args()
 sub_count_type <- if (identical(args$count_type, "norm")) "voom" else NULL
+
+if (!is.finite(args$image_width) || args$image_width <= 0) {
+  stop("image_width must be a finite value greater than zero")
+}
+if (!is.finite(args$image_height) || args$image_height <= 0) {
+  stop("image_height must be a finite value greater than zero")
+}
+if (is.na(args$dpi) || args$dpi <= 0) {
+  stop("dpi must be an integer greater than zero")
+}
 
 # load multiOmicDataSet from data directory
 moo <- load_moo_from_data_dir()
 
 # run MOSuite
-plot_expr_heatmap(
+heatmap_plot <- plot_expr_heatmap(
   moo,
   count_type = args$count_type,
   sub_count_type = sub_count_type,
@@ -312,5 +340,23 @@ plot_expr_heatmap(
   legend_font_size = args$legend_font_size,
   gene_name_font_size = args$gene_name_font_size,
   sample_name_font_size = args$sample_name_font_size,
-  display_numbers = args$display_numbers
+  display_numbers = args$display_numbers,
+  print_plots = FALSE,
+  save_plots = FALSE
 )
+
+output_path <- file.path(
+  getOption("moo_plots_dir"),
+  "heatmap",
+  "expr_heatmap.png"
+)
+dir.create(dirname(output_path), recursive = TRUE, showWarnings = FALSE)
+grDevices::png(
+  filename = output_path,
+  width = args$image_width,
+  height = args$image_height,
+  units = "in",
+  res = args$dpi
+)
+on.exit(grDevices::dev.off(), add = TRUE)
+ComplexHeatmap::draw(heatmap_plot)
