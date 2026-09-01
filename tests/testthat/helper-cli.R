@@ -68,6 +68,13 @@ expect_plot_created <- function(results_dir) {
   )
 }
 
+expect_plot_dimensions <- function(results_dir, width, height) {
+  plot_path <- file.path(results_dir, "figures", "heatmap", "expr_heatmap.png")
+  plot_array <- png::readPNG(plot_path)
+  expect_equal(dim(plot_array)[2], width)
+  expect_equal(dim(plot_array)[1], height)
+}
+
 common_cli_args <- c(
   "--count_type=clean",
   "--display_gene_names=FALSE",

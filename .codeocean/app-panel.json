@@ -52,6 +52,12 @@
 			"icon": "\ud83d\udcca"
 		},
 		{
+			"id": "VisualizationOutput",
+			"name": "Output",
+			"description": "Saved heatmap image options",
+			"icon": "\ud83d\udcca"
+		},
+		{
 			"id": "FvI4Z2eb9sjL47Jt",
 			"name": "Advanced",
 			"description": "Advanced parameters",
@@ -566,6 +572,36 @@
 				"TRUE",
 				"FALSE"
 			]
+		},
+		{
+			"id": "image_width_id",
+			"category": "VisualizationOutput",
+			"name": "Image width (inches)",
+			"param_name": "image_width",
+			"description": "Width of the saved PNG in inches.",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "10"
+		},
+		{
+			"id": "image_height_id",
+			"category": "VisualizationOutput",
+			"name": "Image height (inches)",
+			"param_name": "image_height",
+			"description": "Height of the saved PNG in inches.",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "10"
+		},
+		{
+			"id": "dpi_id",
+			"category": "VisualizationOutput",
+			"name": "DPI",
+			"param_name": "dpi",
+			"description": "Resolution of the saved PNG in dots per inch.",
+			"type": "text",
+			"value_type": "string",
+			"default_value": "300"
 		}
 	],
 	"results": [
