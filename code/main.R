@@ -282,7 +282,7 @@ if (!is.finite(args$image_width) || args$image_width <= 0) {
 if (!is.finite(args$image_height) || args$image_height <= 0) {
   stop("image_height must be a finite value greater than zero")
 }
-if (is.na(args$dpi) || args$dpi <= 0) {
+if (!is.finite(args$dpi) || args$dpi <= 0 || args$dpi != floor(args$dpi)) {
   stop("dpi must be an integer greater than zero")
 }
 

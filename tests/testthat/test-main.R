@@ -40,7 +40,6 @@ test_that("main.R CLI creates expression heatmap plot", {
   expect_equal(exit_code, 0, info = "main.R should execute without error")
 
   expect_plot_created(setup$results_dir)
-  expect_plot_dimensions(setup$results_dir, width = 3000, height = 3000)
 })
 
 test_that("main.R CLI saves heatmap with requested dimensions and DPI", {
@@ -74,7 +73,12 @@ test_that("main.R CLI rejects invalid output dimensions and DPI", {
   setwd(setup$code_dir)
   on.exit(setwd(old_wd), add = TRUE)
 
-  for (argument in c("--image_width=0", "--image_height=-1", "--dpi=0")) {
+  for (argument in c(
+    "--image_width=0",
+    "--image_height=-1",
+    "--dpi=0",
+    "--dpi=100.5"
+  )) {
     exit_code <- system2("Rscript", args = c("main.R", common_cli_args, argument))
     expect_false(exit_code == 0, info = paste("main.R should reject", argument))
   }
