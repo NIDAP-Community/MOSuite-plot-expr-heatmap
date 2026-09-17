@@ -2,6 +2,8 @@
 
 ## development version
 
+## v5.0
+
 - Use MOSuite v0.5.0. (#13, @kelly-sovacool)
 - Add physical output dimensions and DPI controls for expression heatmap PNGs. (#14, @TJoshMeyer)
 
